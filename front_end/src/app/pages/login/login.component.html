@@ -1,0 +1,46 @@
+
+<div class="d-flex flex-column align-items-center justify-content-center h-100">
+
+    <div>
+        <div class="d-flex flex-column align-items-center">
+          <img src="./assets/images/logo.png" alt="Logo" style="max-width: 12%;" />
+          <h1 class="title-login">FACE ID</h1>
+          <span class="sub-title">Facial Recognition Attendance System</span>
+        </div>
+    </div>
+  
+    <div class="row justify-content-center" style="padding-top: 50px;">
+      <mat-card class="main-card">
+        <div>
+            <mat-card-content class="center-container d-flex justify-content-center">
+                <img src="./assets/images/user-avatar-dark.png" alt="user icon" width="60px" />
+            </mat-card-content>
+        </div>
+
+        <mat-card-content>
+            <form [formGroup]="loginForm" (ngSubmit)="login()" autocomplete="off">
+                <input type="text" id="PreventChromeAutocomplete" name="PreventChromeAutocomplete" autocomplete="username" style="display: none" />
+                <input type="password" id="PreventChromePasswordAutocomplete" name="PreventChromePasswordAutocomplete" autocomplete="password" style="position: absolute; opacity: 0" />
+    
+                <mat-form-field class="full-width" appearance="outline">
+                    <mat-label>User Name</mat-label>
+                    <input formControlName="username" matInput autocomplete="off" #userId  />
+                </mat-form-field>
+                
+                <br /><br />
+                
+                <mat-form-field class="full-width" appearance="outline">
+                    <mat-label>Password</mat-label>
+                    <input formControlName="password" matInput type="password" autocomplete="off" #password  />
+                </mat-form-field>
+
+                <br /><br />
+    
+                <button type="submit" mat-flat-button class="full-width login-btn" >Log In</button>
+            
+            </form>
+        </mat-card-content>
+      </mat-card>
+    </div>
+  
+  </div>  

@@ -1,0 +1,28 @@
+.title-login {
+    font-weight: 400;
+    font-size: 1.8rem;
+    color: #999494;
+    margin-bottom: 3px;
+}
+.sub-title {
+    color: #999494;
+    opacity: 0.8;
+}
+.main-card{
+    width: 400px;
+}
+.mat-mdc-card {
+    border-radius: 0px !important;
+    box-shadow: none !important;
+  
+}
+.full-width{
+    width: 100%;
+}
+.login-btn {
+    background: #3f51b5 !important;
+    color: #fff !important;
+    height: 2.75rem !important;
+    border-radius: 2.5rem !important;
+    border: none;
+}
