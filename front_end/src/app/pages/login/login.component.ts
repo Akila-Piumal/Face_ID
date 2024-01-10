@@ -33,6 +33,8 @@ export class LoginComponent {
       console.log("user id",userId)
       console.log("user passowrd",userPassword)
 
+      this.router.navigateByUrl('home');
+
       // this.commonService.startLoading();
 
       // this.userService.login(userId, userPassword).subscribe({

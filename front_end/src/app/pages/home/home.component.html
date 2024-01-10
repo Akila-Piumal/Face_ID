@@ -1,0 +1,109 @@
+<mat-toolbar color="primary">
+  <button
+    (click)="openleftsidebar()" 
+    mat-icon-button
+    class="example-icon"
+    aria-label="Example icon-button with menu icon"
+    type="button"
+  >
+    <mat-icon>menu</mat-icon>
+  </button>
+    <img class="logo" src="./assets/images/logo.png" alt="" [routerLink]="'my-expenses'" />
+    <!-- hardcoded -->
+    <span class="company-name">Face ID</span>
+    <span class="example-spacer"></span>
+
+    <div class="header-toolbar">
+        <!-- hardcoded -->
+      <p class="usename">Akila Piumal</p> 
+
+      <button class="user-button" mat-icon-button [matMenuTriggerFor]="userMenu" matTooltip="User"
+        [matTooltipPosition]="'below'">
+        <mat-icon class="user-button__icon material-icons-outlined">person</mat-icon>
+      </button>
+      <div class="fs">
+        <button class="user-button" mat-icon-button (click)="openFullscreen()" matTooltip="Full Screen"
+          [matTooltipPosition]="'below'">
+          <mat-icon class="user-button__icon material-icons-outlined ">fullscreen</mat-icon>
+        </button>
+      </div>
+
+      <mat-menu #userMenu="matMenu" xPosition="before" class="user-popover">
+        <div class="user-menu-title">
+            <!-- hardcoded -->
+          <h4 class="user-menu-title__name">Akila Piuaml</h4>
+        </div>
+        <button mat-menu-item class="user-menu__item-title" (click)="viewUser()">
+          <mat-icon class="user-menu-icon">person</mat-icon>Profile
+        </button>
+      </mat-menu>
+
+      <div class="log-out">
+        <button (click)="logout()" class="" mat-icon-button matTooltip="Log out" [matTooltipPosition]="'below'">
+          <mat-icon class="user-menu-icon">logout</mat-icon>
+        </button>
+      </div>
+
+    </div>
+  </mat-toolbar>
+
+  <mat-sidenav-container class="example-container">
+    <mat-sidenav #sidenav mode="side" [(opened)]="opened" >
+      <mat-list role="list">
+        <mat-list-item
+          *ngFor="let lis of slideBarLinks"
+          (click)="onList(lis.id)"
+          routerLink="/dashboard/it-support/{{ lis.link }}"
+          routerLinkActive="nav-active"
+          role="listitem"
+          class=" pb-2 pt-2 mt-1"
+        >
+          <div class="left-sidebar">
+            <div class="left-sidebar-icons">
+              <mat-icon
+                class="material-icons-outlined "
+                aria-hidden="false"
+                aria-label="Example home icon">
+                {{ lis.icon }}
+              </mat-icon>
+            </div>
+            
+            <div class="left-sidebar-spans">
+              <span *ngIf="isExpanded" class="custom-text-styles">
+                {{ lis.name }}
+              </span>
+            </div>
+          </div>
+          
+        </mat-list-item>
+      </mat-list>
+    </mat-sidenav>
+
+    <mat-sidenav-content >
+      <mat-list role="list" style="width: max-content;" [ngStyle]="{'width': !opened ? 'max-content' : '0' }">
+        <mat-list-item
+          *ngFor="let lis of slideBarLinks"
+          (click)="onList(lis.id)"
+          [matTooltip]="lis.name"
+          [matTooltipPosition]="'right'"
+          routerLink="/dashboard/it-support/{{ lis.link }}"
+          routerLinkActive="nav-active"
+          role="listitem"
+          class=" pb-2 pt-2 mt-1"
+        >
+          <div class="left-sidebar" *ngIf="!opened" >
+            <div class="left-sidebar-icons">
+              <mat-icon
+                class="material-icons-outlined "
+                aria-hidden="false"
+                aria-label="Example home icon">
+                {{ lis.icon }}
+              </mat-icon>
+            </div>
+          </div>
+          
+        </mat-list-item>
+      </mat-list>
+      
+    </mat-sidenav-content>
+  </mat-sidenav-container>
